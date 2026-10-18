@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "net.im51111n355.buildthing"
-version = "1.0.0"
+version = "1.0.1"
 
 repositories {
     mavenCentral()
@@ -71,5 +71,13 @@ publishing {
 
     repositories {
         mavenLocal()
+        maven {
+            name = "dreamfinityNexus"
+            url = uri("https://nexus.dreamfinity.org/repository/maven-releases/")
+            credentials {
+                username = findProperty("nexus.user") as String?
+                password = findProperty("nexus.password") as String?
+            }
+        }
     }
 }
